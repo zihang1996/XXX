@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	</head>
+	<style>
+		*{
+			margin: 0;padding: 0;list-style: none;
+		}
+		html,body{
+			-webkit-user-select: none;-webkit-text-size-adjust: 100%;height: 100%;width: 100%;
+		}
+		div{
+			display: flex;flex-direction: column;height: 100%;width: 100%;box-sizing: border-box;
+		}
+		section .a{
+			width: 100%;height: 44px;background:url(img/headerbg_v2.png) no-repeat;background-size: cover;
+		}
+		section{
+			width: 100%;height: 100%;overflow-y: auto;flex:1;
+		}
+		.a .a-1{
+			display: flex;justify-content: space-between;line-height: 44px;
+		}
+		.a .a-1 li:first-child{
+			margin-left: 10px;
+		}
+		.a .a-1 li:last-child{
+			margin-right: 10px;
+		}
+		.a .a-1 li:last-child span{
+			padding: 5px;background: blue;color: white;border-radius: 20%;
+		}
+		.a .a-1 li:first-child img{
+			width: 120px;height: 30px;margin-top: 07px;
+		}
+		section .b{
+			display: flex;justify-content: space-around;text-align: center;color: white;background:#1E90FF;
+		}
+		section .b span{
+			padding: 4px 10px;
+		}
+		section .c{
+			height: 200px;
+		}
+		section .c img{
+			height: 200px;
+		}
+		section .d1{
+			
+		}
+		section .d1 li{
+			border-bottom: 1px solid #E6E6E6;padding-top: 10px;padding-bottom: 10px;margin-left: 10px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;
+		}
+		section .d1 li span{
+			font-size: 18px;
+		}
+		section .d1 li span:last-child{
+			padding-left: 10px;
+		}
+		section .d1 li span:first-child{
+			color: #1E90FF;padding-right: 10px;border-right: 2px solid #ccc;
+		}
+		section .d1 li:last-child{
+			border: none;
+		}
+		section .d .d2{
+			display: block;height: 50px;background: #29E8E8;width: 80%;text-align: center;line-height: 50px;margin: 20px auto;
+		}
+		section .d .d2 span{
+			width: 20px;height: 20px;background: #1E90FF;color: white;display: inline-block;text-align: center;line-height: 20px;border-radius:50%;
+		}
+		section .d .d3 li:nth-child(2) span:first-child{
+			color: black;
+		}
+		section .d .d3 .h span:first-child{
+			display: inline-block; height: 27px; width: 39px;background: url(img/flagicon.png);
+		}
+		section .d .d3 .j span{
+			border-right: none;
+		}
+		section .d .d4{
+			background: #E6E6E6;color: #ccc;
+		}
+		section .d .d4 span{
+			background: #ccc;
+		}
+		section .d h5{
+			border-top: 2px solid #1E90FF;padding: 10px 0;
+		}
+		
+		section .d h5 span{
+			padding: 10px 20px;font-size: 18px;color: #1E90FF;
+		}
+		section .d h5 span:first-child{
+			color: orangered;border-top: 1px solid #0000FF;border-right: 1px solid #E6E6E6;
+		}
+		.qq{
+			position: fixed;right: 0;bottom:40px;
+		}
+	</style>
+	<body>
+		<div>
+			<header></header>
+			<section>
+				<div class="a">
+					<ul class="a-1">
+						<li><img src="img/logo.png" alt="" /></li>
+						<li><span>登录</span></li>
+					</ul>
+				</div>
+				<p class="b">
+					<span>新闻</span>
+					<span>财经</span>
+					<span>娱乐</span>
+					<span>体育</span>
+					<span>更多</span>
+				</p>
+				<p class="b">
+					<span>军事</span>
+					<span>NBA</span>
+					<span>应用</span>
+					<span>科技</span>
+					<span>星座</span>
+				</p>
+				<div class="c">
+					<img src="img/0 (1).jpg" alt="" />
+				</div>
+				<div class="d">
+					<ul class="d1">
+						<li><span>H5精选</span><span>端午微信刷屏小游戏</span></li>
+						<li><span>财经</span><span>非常失望！美国商界大佬齐发声aaa</span></li>
+						<li><span>娱乐</span><span>所谓娱乐</span></li>
+						<li><span>体育</span><span>梦想不发皱！新疆足球少年如愿aa</span></li>
+						<li><span>军事</span><span>中国研成新型发动机 全球仅两aa</span></li>
+					</ul>
+					<p class="d2">用QQ号登陆，看个性化新闻<span>></span></p>
+					<h5><span>新闻</span><span>社会</span><span>军事</span></h5>
+					<ul class="d1 d3">
+						<li><span>H5精选</span><span>端午微信刷屏小游戏</span></li>
+						<li class="j"><span>外交部谈日媒涉朝报道：日方有人可说不过拉几</span></li>
+						<li class="h"><span></span><span>台官方证实：4名台湾同胞在菲律宾拉几个</span></li>
+						<li class="h"><span></span><span>菲律宾酒店事件</span></li>
+						<li class="h"><span></span><span>上海小老虎戴海波这项罪 多数狼了j</span></li>
+						<li class="h"><span></span><span>菲律宾酒店事件</span></li>
+						<li class="h"><span></span><span>台官方证实：4名台湾同胞在菲律宾拉几个</span></li>
+						<li class="h"><span></span><span>菲律宾酒店事件</span></li>
+						<li class="h"><span></span><span>上海小老虎戴海波这项罪 多数狼了j</span></li>
+					</ul>
+					<p class="d2 d4">进入新闻频道<span>></span></p>
+				</div>
+				<img src="img/40956233.png" alt="" class="qq" />
+			</section>
+			<footer></footer>
+		</div>
+	</body>
+</html>

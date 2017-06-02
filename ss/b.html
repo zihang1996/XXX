@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="/socket.io/socket.io.js"></script>
+		<style>
+			.hide{
+				display:none;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="txt" /><button id="btn">发送</button>
+		<button id="face">选表情</button>
+		<div id="faces" class="hide">
+			
+			
+		</div>
+		<input type="file" id="file" />
+		<br  />
+		<div id="chat"></div>
+		<script>
+			var btn=document.getElementById("btn");
+			var txt=document.getElementById("txt");
+			var chat=document.getElementById("chat");
+			var faces=document.getElementById("faces");
+			var face=document.getElementById("face");
+			var file=document.getElementById("file");
+			 var socket=io.connect("http://localhost:5000");
+			 
+			 for(let i=1;i<=5;i++){
+			 	var t = new Image;
+			 	t.src="img/"+i+".gif";
+			 	t.onclick=function(){
+			 		   txt.value+="[biaoqing:"+i+"]";
+			 		   faces.className="hide";
+			 	}
+			 	faces.appendChild(t);
+			 }
+			 face.onclick=function(){
+			 	 faces.className="show";
+			 }
+			 
+			   function getFace(data){
+			   	    var reg=/\[biaoqing:\d+\]/g;
+			   	    var arr;
+			   	   while(arr=reg.exec(data)){
+			   	   	  var t = arr[0].slice(10,-1);
+			   	   	 
+			   	   	  data=data.replace(arr[0],"<img src='img/"+t+".gif' />");
+			   	   }
+			   	  return data;
+			   	  
+			   }
+			 
+			 
+			 btn.onclick=function(){
+			 	socket.emit("hcclient",txt.value);
+			 }
+			 
+			 socket.on("sys",function(data){
+			 	data = getFace(data);
+			 	
+			 	chat.innerHTML=data+"<br />"+chat.innerHTML;
+			 	
+			 })
+			 file.onchange=function(){
+			 	  var fr=new FileReader;
+			 	  fr.readAsDataURL(file.files[0]);
+			 	  fr.onload=function(){
+			 	  	  socket.emit("img",this.result);
+			 	  }
+			 }
+			 socket.on("simg",function(data,user){
+			 	 chat.innerHTML=user+"说:<img src='"+data+"' ><br />"+chat.innerHTML;
+			 })
+		</script>
+	</body>
+</html>

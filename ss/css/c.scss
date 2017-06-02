@@ -1,0 +1,29 @@
+@charset "utf-8";
+$sc:20;
+*{
+    margin: 0;padding: 0;list-style: none;
+}
+body{
+    padding-top: 40/$sc+rem;padding-bottom: 40/$sc+rem;
+}
+%bar{
+    width: 320/$sc+rem;height: 40/$sc+rem;
+}
+header{
+    @extend %bar;
+    background: #00B38A;
+    position: absolute;
+    top: 0;
+}
+section{
+    width: 320/$sc+rem;background: #e6e6e6;position: absolute;top: 40/$sc+rem;
+    ul li{
+        width:320/$sc+rem;height: 80px;
+    }
+}
+footer{
+    @extend %bar;
+    background: #00B38A;
+    position: fixed;
+    bottom: 0;
+}

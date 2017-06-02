@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+header, footer {
+  width: 16rem;
+  height: 2rem;
+}
+
+header {
+  background: #00B38A;
+  position: absolute;
+  top: 0;
+}
+
+section {
+  width: 16rem;
+  background: #e6e6e6;
+  position: absolute;
+  top: 2rem;
+}
+
+section ul li {
+  width: 16rem;
+  height: 80px;
+}
+
+footer {
+  background: #00B38A;
+  position: fixed;
+  bottom: 0;
+}

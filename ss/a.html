@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0px;padding: 0px;
+		}
+		#big{
+			position: relative;width: 516px;height: 499px;margin: 0 auto;
+		}
+		#bod{
+			position: absolute;
+			width: 315px;height: 285px;border: 1px solid red;
+			top: 81px;left: 0px;
+		}
+		#btn1{
+			width: 50px;height: 20px;position: absolute;bottom:7px;right: 202px;
+		}
+		#btn2{
+			width: 50px;height: 20px;position: absolute;bottom:7px;right: 262px;
+		}
+		#chat{
+			position: absolute;bottom: 28px;right: 185px;resize: none;
+		}
+		#col{
+			width: 18px;height: 18px;position: absolute;top: 374px;left: 3px;
+		}
+	</style>
+	<body>
+		<div id="big">
+			<img src="img/8.png" alt="" />
+			<div id="bod"></div>
+			<textarea name="" rows="5px" cols="49px" id="chat"></textarea>
+			<button id="btn1">关闭</button>
+			<button id="btn2">发送</button>
+			<input type="color" id="col"/>
+		</div>
+		<script>
+			var color="#000";
+			var big=document.getElementById("big");
+			var btn1=document.getElementById("btn1");
+			var btn2=document.getElementById("btn2");  //发言按钮
+			var txt=document.getElementById("chat");  //发言内容的文本框
+			var show=document.getElementById("bod"); //聊天信息区
+			var clr=document.getElementById("col"); //聊天信息区
+			var w=new WebSocket("ws://localhost:8002");
+			btn2.onclick=function(){
+				
+				w.send(txt.value);
+				txt.value="";
+			}
+			btn1.onclick=function(){
+				big.innerHTML="";
+			}
+			
+		  
+		   	w.onmessage=function(ev){ //onmessage 来消息时发生的事件
+		   		 if(ev.data.indexOf("):")!=-1){    //聊天中的发言内容含有):的
+		   		 	var da = ev.data.split("):");
+					da[1]="<span style='color:"+color+"'>"+da[1]+"</span>"; //把发言变为用户选的颜色
+					show.innerHTML=da.join("):")+"<br />"+show.innerHTML;	
+		   		 	
+		   		 }
+		   		 else{
+		   		 	
+					show.innerHTML="<span style='color:"+color+"'>"+ev.data+"</span><br />"+show.innerHTML;	
+		   		 }
+					
+					
+			}
+		   	clr.onchange=function(){
+		   		color=this.value;
+		   	}	
+		</script>
+	</body>
+</html>
