@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<script src="js/zepto.min.js"></script>
+		<script src="js/jquery-3.2.1.js"></script>
+		<script>
+			  document.documentElement.style.fontSize=innerWidth/16+"px";
+		</script>
+	</head>
+	<style>
+		  html,body{
+		  	 width:100%;
+		  	 height: 100%;
+		  	 margin:0;
+		  }  
+		  div{
+		  	 width:16rem;
+		  	 height: 100%;
+		     position:relative;
+		     overflow: hidden;
+		  }
+		  ul{
+		  	transition: transform 1s;
+		  	 position: absolute;
+		  	 top:0;
+		  	 left:0;
+		  	 margin:0;padding:0;list-style: none;
+		  	 width:400%;
+		  	 height: 100%;
+		  	 
+		  }
+		  li{
+		  	  width:16rem;
+		  	  height: 100%;
+		  	  float: left;
+		  }
+		  li img{
+		  	width: 16rem;height: 100%;
+		  }
+		  #one span{
+		  	width: 10px;height: 10px;border-radius: 50%;position: absolute;border: 3px solid yellow;z-index: 33;
+		  }
+		  #one span:nth-child(5){
+		  	bottom:20px;right: 120px;
+		  }
+		  #one span:nth-child(4){
+		  	bottom:20px;right: 140px;
+		  }
+		  #one span:nth-child(3){
+		  	bottom:20px;right: 160px;
+		  }
+		  #one span:nth-child(2){
+		  	bottom:20px;right: 180px;
+		  }
+		  #list button{
+		  	z-index: 89;position: absolute;bottom:115px;right: 72px;background:rgba(255,255,255,0.2) ;border: none;width: 200px;height: 50px;color: white;font-size: 20px;font-family: "宋体";
+		  }
+		  .p{
+		  	background: red;
+		  }
+	</style>
+	<body>
+		<div id="one">
+			<ul id="list">
+				 <li><img src="img/1.png" alt="" /></li>
+				 <li><img src="img/2.png" alt="" /></li>
+				 <li><img src="img/3.png" alt="" /></li>
+				 <li><img src="img/4.png" alt="" /> <button>开始您的旅程 </button></li>
+			</ul>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+	<script>
+		$("#one")[0].addEventListener("touchstart",function(ev){
+			ev.preventDefault();
+		})
+		
+		$(function(){
+			var n=0;
+			$("#one span").eq(n).addClass("p").siblings().removeClass("p");
+			var size=$("#list").find("li").length;
+			var w=$(window).width();
+			
+			$("#one").on("swipeLeft",function(){
+				n++;
+				if(n>=size){
+					n=size-1;
+				}
+				$("#one span").eq(n).addClass("p").siblings().removeClass("p");
+				$("#list").css("-webkit-transform","translate3d("+(-n*w)+"px,0,0)");
+				
+			})
+			$("#one").on("swipeRight",function(){
+				n--;
+				if(n<=0){
+					n=0;
+				}
+				$("#list").css("-webkit-transform","translate3d("+(-n*w)+"px,0,0)");
+				$("#one span").eq(n).addClass("p").siblings().removeClass("p");
+			})
+			$("button").on("tap",function(){
+				location.href="denglu.html";
+			})
+		})
+	</script>
+</html>
