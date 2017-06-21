@@ -61,6 +61,18 @@
 		.add{
 			height: 100%;width: 40%;background: rgba(0,0,0,0.6);position: absolute;left: -40%;
 		}
+		.add img{
+			width:60px;height: 60px;border-radius: 50%;border: 2px solid white;margin-top: 24px;margin-left: 4px;margin-bottom: 10px;
+		}
+		.add p{
+			color: white;font-size: 12px;
+		}
+		.add ul li{
+			margin-top: 30px;color: white;margin-left: 5px;
+		}
+		.add a{
+			color: white;outline: none;
+		}
 	</style>
 	<body>
 		<header>
@@ -92,14 +104,25 @@
 				<li><a href="">动态</a></li>
 			</ul>
 		</footer>
-		<div class="add"></div>
+		<div class="add">
+			<img src="img/logo.png" alt="" />
+			<p>&nbsp;&nbsp;侣行，伴你行 <span style="float: right;margin-right: 1em;">Lv.7</span></p>
+			<ul>
+				<li><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;我的好友</li>
+				<li><a href="fujin.html"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;&nbsp;附近的人</a></li>
+				<li><i class="glyphicon glyphicon-paperclip"></i>&nbsp;&nbsp;我的足迹</li>
+				<li><i class="glyphicon glyphicon-picture"></i>&nbsp;&nbsp;相册</li>
+				<li><i class="glyphicon glyphicon-cog"></i>&nbsp;&nbsp;设置</li>
+				<li class="out"><i class="glyphicon glyphicon-record"></i>&nbsp;&nbsp;退出</li>
+			</ul>
+		</div>
 	</body>
 	<script>
 		$(function(){
 			$("#add1").click(function(){
 				$(".add").animate({"left":"0px"},500);
 			})
-			$("section").click(function(){
+			$(".out").click(function(){
 				$(".add").animate({"left":"-40%"},500);
 			})
 		})
